@@ -75,7 +75,6 @@ if __name__ == '__main__':
     # optional args for printing out the grid
     parser.add_argument("--coords", help="Print the resulting grid as a single list of comma seperated coordinates",
                         action="store_true")
-    parser.add_argument("--grid", help="Print the resulting grid as a list", action="store_true")
     args = parser.parse_args()
 
     # pull the values from the args
@@ -90,6 +89,5 @@ if __name__ == '__main__':
     # print out the grid if necessary
     if args.coords:
         print_coords(output_grid)
-
-    if args.grid:
+    else:
         print output_grid
