@@ -7,6 +7,14 @@ BEARING_NORTH = 360   # North
 
 
 def generate_grid(min_latitude, max_latitude, min_longitude, max_longitude):
+    """
+    Generate a 1km resolution coordinate grid given the boundary points
+    :param min_latitude: Starting latitude in Decimal Degrees
+    :param max_latitude: Boundary latitude in Decimal Degrees
+    :param min_longitude: Starting longitude in Decimal Degrees
+    :param max_longitude: Boundary longitude in Decimal Degrees
+    :return: 2d list of (latitude, longitude) points in Decimal Degrees
+    """
     output_grid = []
     index = -1
 
@@ -33,11 +41,22 @@ def generate_grid(min_latitude, max_latitude, min_longitude, max_longitude):
 
 
 def get_new_point(lat, lon, bearing):
+    """
+    Generate a new coordinate point
+    :param lat: Latitude in Decimal Degrees
+    :param lon: Longitude in Decimal Degrees
+    :param bearing: Direction to move to get new point in degrees
+    :return: (Latitude, Longitude) point
+    """
     point = VincentyDistance(kilometers=1).destination(Point(lat, lon), bearing)
     return point.latitude, point.longitude
 
 
 def print_coords(output_grid):
+    """
+    Print the coordinate grid as individual points
+    :param output_grid: 2d list of
+    """
     for row in output_grid:
         for point in row:
             print '{0},{1}'.format(point[0], point[1])
