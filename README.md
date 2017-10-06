@@ -81,6 +81,6 @@ cd into app root and run
 ### To call in python
 ```
 import part2
-result = part2.generate_grid
+result = part2.challenge('data.csv')
 print result
 ```
