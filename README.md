@@ -5,7 +5,16 @@
 from the root directory of the repo run `pip install -r requirements.txt`
 to install the required modules.
 
-## Part 1
+## Part 1 - Grid Generation
+
+### Implementation Summary
+Coordinate point generation and traversal is done using the geopy module and an ellipsoid earth model.
+starting at the origin point and moving east by 1km at a time a new point is generated and added
+to the current of row of points parallel to the latitude lines. Once a point is generated with a
+longitude value greater than the given max longitude, the loop returns to the row starting point
+and moves North 1km, then starts again with a new row. When the row starting latitude and longitude
+are greater than the given max latitude and longitude, the loop exits and returns the grid.
+
 ### To execute using the terminal
 cd into app root and run
 * `python part1.py <min_latitude> <max_latitude> <min_longitude> <max_longitude>`
@@ -45,6 +54,17 @@ print output_grid
 
 
 ## Part 2
+
+### Implementation Summary
+When reading through the csv file a new Player instance is created with
+the attributes of that row and added to an instance of Team. Each output value
+is a function of all the players on a team so the Team object has methods to generate those values.
+
+##### Asumptions
+* The first row of the CSV file is a header row
+* Each subsequent row corresponds to a unique player on the team
+* Every player described in the CSV file is on the same team
+
 ### To execute using the terminal
 cd into app root and run
 * `python part2.py <file_path>`
