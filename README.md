@@ -13,7 +13,8 @@ starting at the origin point and moving east by 1km at a time a new point is gen
 to the current of row of points parallel to the latitude lines. Once a point is generated with a
 longitude value greater than the given max longitude, the loop returns to the row starting point
 and moves North 1km, then starts again with a new row. When the row starting latitude and longitude
-are greater than the given max latitude and longitude, the loop exits and returns the grid.
+are greater than the given max latitude and longitude, the loop exits and returns the grid. I went with this
+because it seemed to be the most logical and allowed the generation of the grid row by row.
 
 ### To execute using the terminal
 cd into app root and run
@@ -59,6 +60,7 @@ print output_grid
 When reading through the csv file a new Player instance is created with
 the attributes of that row and added to an instance of Team. Each output value
 is a function of all the players on a team so the Team object has methods to generate those values.
+I used this implementation because it was such a clear use case for classes.
 
 ##### Asumptions
 * The first row of the CSV file is a header row
