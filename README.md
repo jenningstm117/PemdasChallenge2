@@ -53,7 +53,7 @@ print output_grid
 ```
 
 
-## Part 2
+## Part 2 - Baseball Team
 
 ### Implementation Summary
 When reading through the csv file a new Player instance is created with
